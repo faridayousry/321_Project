@@ -7,10 +7,10 @@
 	-determine characters & get probabilities 
 	-encode chars in binary
 	-save coded chars and binaryCode table? into output file
-
+	-compress/decompress function
 */
 
-//-class Maxheap ??
+//-class Minheap ??
 
 class Huffman_Compressor
 {
@@ -40,21 +40,22 @@ void Huffman_Compressor :: encode_chars (node* root, int index, int binaryCode[]
 	// traverse left child and concatinate 0 to the binaryCode
 	if ( root -> get_left_node())	//check if left child exists
 	{
-		binaryCode [index] += 0;
+		binaryCode [index] = 0;
 		encode_chars ( root -> get_left_node(), index+1, binaryCode);
 	}
 
 	if (root -> get_right_node()) 	  // traverse right child and concatinate 1 to the binaryCode
 	{
-		binaryCode [index] += 1;
+		binaryCode [index] = 1;
 		encode_chars(root->get_right_node(), index+1, binaryCode);
 	}
 
 	if (root -> is_leaf())	//if we are at the leaf; store the code in the map <char, bin_code>
 	{
-		/*for (int i = 0; i < index; i++) 
-			final_code += to_string (binaryCode[i])
-		*/
+		int final_code;
+		for (int i = 0; i < index; i++) 
+			final_code += to_string (binaryCode[i]) (mesh add CONCATINATE)
+		
 		map <....> = binaryCode;
 	}
 }
